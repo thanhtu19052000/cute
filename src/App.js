@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { Fragment } from "react";
+import { publicRoutes } from "./routes";
+import { useSelector } from "react-redux";
 
 function App() {
+  const {fontSize} = useSelector((state) => state.configType)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <BrowserRouter>
+      <div className="App"
+        style={{fontSize:fontSize}}
+      >
+        <Routes>
+          {publicRoutes.map((route, index) => {
+            let Layout;
+            if (route.layout) {
+              Layout = route.layout;
+            } else if (route.layout == null) {
+              Layout = Fragment;
+            }
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <Layout>
+                      <route.component />
+                  </Layout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </div>
+    </BrowserRouter> 
   );
 }
 

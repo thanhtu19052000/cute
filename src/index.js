@@ -1,13 +1,35 @@
+import './index.css';
+
+import App from './App';
+import { ConfigProvider } from 'antd';
+import GlobalStyle from './components/globalStyle';
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyle>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#008c4f',
+            borderRadius: 4,
+            colorSuccess: '#e49f15',
+            colorWarning:'#e49f15',
+            // Alias Token
+            colorBgContainer: '#f6ffed',
+          },
+        }}
+      >
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ConfigProvider>  
+    </GlobalStyle>
   </React.StrictMode>
 );
 

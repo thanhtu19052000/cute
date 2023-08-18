@@ -1,0 +1,49 @@
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+
+
+
+
+:root {
+
+
+    --default-layout-header-height: 50px;
+    --default-layout-width: 1150px;
+    --green-color: #008c4f;
+    --yellow-color: #e49f15;
+    --grey-color: #f1f3f2;
+    --boder-color: #d9d9d9;
+    --white-color: #ffffff;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.App {
+    margin-top: calc(var(--default-layout-header-height)*2 + 15px);
+    /* Add margin to the main content to prevent overlap with the fixed header */
+    padding-top: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.selected-text {
+    font-size: 16px;
+    /* Kích thước mặc định */
+    background-color: yellow;
+    /* Màu nền khi văn bản được bôi đen */
+}
