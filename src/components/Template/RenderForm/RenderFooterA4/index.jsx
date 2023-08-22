@@ -1,31 +1,26 @@
-import { BlobProvider, Document, PDFDownloadLink, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
-
-import Header from '../Header'
 import React from 'react'
-import classnames from 'classnames/bind'
-import styles1 from './DefaultLayout.scss'
+import { View } from '@react-pdf/renderer'
 
-const cx = classnames.bind(styles1)
-
-function DefaultLayouts({ children }) {
+function FooterA4() {
     return (
-        <div>
-            <Header />
-            <div className={cx('wrapper-edit-content')}>
-                {children}
-            </div>
-        </div>
+        <View>
+            <View>Content here</View>
+            <View>
+                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+                    `${pageNumber} / ${totalPages}`
+                )} fixed />
+            </View>
+        </View>
     )
 }
 
-export default DefaultLayouts
+export default FooterA4
 
 const styles = StyleSheet.create({
     body: {
         paddingTop: 35,
         paddingBottom: 65,
         paddingHorizontal: 35,
-        backgroundColor: 'tomato'
     },
     title: {
         fontSize: 24,

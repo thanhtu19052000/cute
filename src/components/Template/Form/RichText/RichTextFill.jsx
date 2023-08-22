@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { TYPE_RICH_TEXT_FUNC } from '../../../config/constant';
+import { TYPE_RICH_TEXT_FUNC } from '../../../../config/constant';
 import boldIcon from '../../../asset/images/bold.png'
 import centerIcon from '../../../asset/images/center.png'
 import classNames from 'classnames/bind';
@@ -13,7 +13,7 @@ import underlineIcon from '../../../asset/images/underline.png'
 
 const cx = classNames.bind(styles)
 
-const RichTextFill = (props) => {
+const RichTextFill = ({ value, onChange, label }) => {
     const itemFunction = [
         { type: TYPE_RICH_TEXT_FUNC.BOLD, property: 'bold', result: 'null', urlImage: boldIcon }
         , { type: TYPE_RICH_TEXT_FUNC.ITALIC, property: 'italic', result: 'null', urlImage: italicIcon }
@@ -60,11 +60,14 @@ const RichTextFill = (props) => {
                     })
                 }
             </div>}
-            <div id='RichText' className={cx('rich-text')}
-                contentEditable={true}
-                onInput={onchange}
-                onFocus={() => setFocus(true)}
-                onBlur={() => setFocus(false)}>
+            <div>
+                <div>{label}</div>
+                <div id='RichText' className={cx('rich-text')}
+                    contentEditable={true}
+                    onInput={onChange}
+                    onFocus={() => setFocus(true)}
+                    onBlur={() => setFocus(false)}>{value}
+                </div>
             </div>
         </div>
     );

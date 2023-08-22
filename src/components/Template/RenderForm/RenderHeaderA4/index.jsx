@@ -1,31 +1,29 @@
-import { BlobProvider, Document, PDFDownloadLink, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
-
-import Header from '../Header'
 import React from 'react'
-import classnames from 'classnames/bind'
-import styles1 from './DefaultLayout.scss'
+import { View } from '@react-pdf/renderer'
+import svgLogoBg from '../../../asset/logo/ocb-text-logo-bg.svg'
+import svgLogoFr from '../../../asset/logo/ocb-coin-logo.svg'
 
-const cx = classnames.bind(styles1)
-
-function DefaultLayouts({ children }) {
+function HeaderA4() {
     return (
-        <div>
-            <Header />
-            <div className={cx('wrapper-edit-content')}>
-                {children}
-            </div>
-        </div>
+        <View>
+            <View>
+                <svgLogoFr />
+                <svgLogoBg />
+            </View>
+            <View>
+                <Text>Content here</Text>
+            </View>
+        </View>
     )
 }
 
-export default DefaultLayouts
+export default HeaderA4
 
 const styles = StyleSheet.create({
     body: {
         paddingTop: 35,
         paddingBottom: 65,
         paddingHorizontal: 35,
-        backgroundColor: 'tomato'
     },
     title: {
         fontSize: 24,

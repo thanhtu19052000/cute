@@ -2,7 +2,7 @@ import { Button, Dropdown, Input } from 'antd';
 import { CheckCircleOutlined, DownloadOutlined, SaveOutlined, SyncOutlined, UserOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 
-import DropDowList from '../../../components/Template/DropDownList';
+import DropDowList from '../../Template/Form/DropDownList';
 import { FONT_FAMILY } from '../../../config/constant';
 import React from 'react'
 import classNames from 'classnames/bind'
@@ -58,7 +58,9 @@ function BottomHeader() {
                         // type="primary"
                         icon={<SaveOutlined />}
                         loading={false}
-                        onClick={() => { }}
+                        onClick={() => {
+
+                        }}
                     >Lưu lại</Button>
                     <Button
                         // type="def"

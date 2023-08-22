@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-
+    background-color: var(--white-color);
 }
 
 
@@ -20,6 +20,7 @@
     &-logo {
         height: 3.8rem;
         margin-top: 5px;
+        // margin-bottom: 20px;
     }
 }
 

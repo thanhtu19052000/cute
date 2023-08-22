@@ -3,7 +3,7 @@ import { CheckCircleOutlined, DownloadOutlined, SaveOutlined, SyncOutlined, User
 import { useDispatch, useSelector } from 'react-redux';
 
 import BottomHeader from './BottomHeader';
-import DropDowList from '../../../components/Template/DropDownList';
+import DropDowList from '../../Template/Form/DropDownList';
 import { FONT_FAMILY } from '../../../config/constant';
 import React from 'react'
 import classNames from 'classnames/bind'
