@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 import { TYPE_RICH_TEXT_FUNC } from '../../../../config/constant';
-import boldIcon from '../../../asset/images/bold.png'
-import centerIcon from '../../../asset/images/center.png'
+import boldIcon from '../../../../asset/images/bold.png'
+import centerIcon from '../../../../asset/images/center.png'
 import classNames from 'classnames/bind';
-import hightlighterIcon from '../../../asset/images/hightlighter.png'
-import italicIcon from '../../../asset/images/italics.png'
-import leftIcon from '../../../asset/images/left.png'
-import rightIcon from '../../../asset/images/right.png'
+import hightlighterIcon from '../../../../asset/images/hightlighter.png'
+import italicIcon from '../../../../asset/images/italics.png'
+import leftIcon from '../../../../asset/images/left.png'
+import rightIcon from '../../../../asset/images/right.png'
 import styles from './RichTextFill.module.scss'
-import underlineIcon from '../../../asset/images/underline.png'
+import underlineIcon from '../../../../asset/images/underline.png'
 
 const cx = classNames.bind(styles)
 

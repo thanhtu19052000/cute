@@ -1,39 +1,68 @@
+import { Document, Image, PDFDownloadLink, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import React, { useEffect } from 'react'
-import { TYPE_ASSIGN, TYPE_IN_LINE } from '../../config/constant'
+import { TYPE_ASSIGN, TYPE_IN_LINE, TYPE_RENDER_HEADER } from '../../config/constant'
 import { useDispatch, useSelector } from 'react-redux'
 
+import BodyPDFGenFile from '../../components/Template/Common/BodyPDFGenFile'
+import Form from '../../components/Template/Form'
+import HeaderFooterFixed from '../../components/Template/Common/HeaderFooterFixed'
 import HeaderPDF from '../../components/Template/HeaderPDF'
+import HeaderPDFGenFile from '../../components/Template/Common/HeaderPDFGenFile'
 import RichTextFill from '../../components/Template/Form/RichText/RichTextFill'
+import globalStyles from '../../config/StyleSheet'
 import moment from 'moment/moment'
-import { setHeader } from '../../redux/slice/demoSlice'
 
-function Demo() {
-    const { header, body, footer } = useSelector((state) => state.demo)
-    const dispatch = useDispatch();
+function Demo({ data, dispatch, typeReducer, genFile }) {
+    // const { header, body, footer } = useSelector((state) => state.demo);
+    // // console.log(header, body);
+    // const dispatch = useDispatch();
+    // const { name } = useSelector((state) => state.auth);
+    // console.log(demo);
+
     useEffect(() => {
-        const header = [
-            {
-                typeInLine: TYPE_IN_LINE.MULTI, data: [
-                    { label: 'Số:', value: '', type: TYPE_ASSIGN.NUM_ID },
-                    { label: `TPHM,ngày:${moment().day()},tháng:${moment().month()},năm:${moment().year()}`, type: TYPE_ASSIGN.NUM_ID }
-                ]
-            },
-            { label: 'TỜ TRÌNH ĐỀ XUẤT CẤP TÍN DỤNG', type: TYPE_ASSIGN.TITLE },
-            { label: 'ÁP DỤNG CÁC SẢN PHẨM CẤP TÍN DỤNG PHỤC VỤ NHU CẦU ĐỜI SỐNG', type: TYPE_ASSIGN.SUB_TITLE },
-        ]
-        dispatch(setHeader(header));
-        // dispatch(setValue())
-    }, []);
 
+    }, []);
+    // console.log('dataa in herer', data);
     return (
-        <div>
-            <HeaderPDF
-                data={header}
-                disPath={dispatch}
-                typeDishPath={setHeader}
-            />
-        </div>
+        <View style={globalStyles.wrapperPDF}>
+            <Page style={{ paddingBottom: 80 }}>
+                <HeaderPDFGenFile
+                    data={{ headerData: data.headerData, fixedHeaderFooter: data.fixedHeaderFooter }}
+                    disPath={dispatch}
+                    typeReducer={typeReducer.setHeader}
+                    genFile={genFile}
+                />
+                <BodyPDFGenFile
+                    data={data.bodyData}
+                    disPath={dispatch}
+                    typeReducer={typeReducer.setBody}
+                    genFile={genFile}
+                />
+                <HeaderFooterFixed />
+            </Page>
+            {/* <Text>ádbmn</Text> */}
+
+        </View>
     )
 }
 
 export default Demo
+
+const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: 'red',
+
+    },
+    title: {
+        fontSize: 24,
+        textAlign: 'center',
+        fontFamily: 'Oswald'
+    },
+    image: {
+        height: 500,
+        width: 500,
+        marginVertical: 15,
+        marginHorizontal: 100,
+    },
+
+});

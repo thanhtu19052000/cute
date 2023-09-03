@@ -47,3 +47,24 @@ body {
     background-color: yellow;
     /* Màu nền khi văn bản được bôi đen */
 }
+
+View {
+
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-family: initial;
+    font-size: medium;
+    font-weight: normal;
+    color: inherit;
+    text-align: inherit;
+
+}
+
+Text {
+    font-size: 15pt;
+
+}
