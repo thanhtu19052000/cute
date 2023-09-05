@@ -69,6 +69,7 @@ const RichTextFill = ({ value, onChange, label }) => {
                     onBlur={() => setFocus(false)}>{value}
                 </div>
             </div>
+            <div className={cx('icon')}>123</div>
         </div>
     );
 };

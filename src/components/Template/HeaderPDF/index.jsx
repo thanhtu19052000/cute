@@ -17,14 +17,14 @@ function HeaderPDF({ data, disPath, typeReducer }) {
                     console.log(item);
                     return <div className={cx('wrapper-date-num')}>
                         <div>
-                            <InputBorderLess
+                            {/* <InputBorderLess
                                 value={item.num.value}
                                 label={item.num.label}
                                 prefix={item.num.prefix}
                                 onChange={(e) => {
                                     disPath(typeReducer({ name: item.num.name, value: e.target.value }))
                                 }}
-                            />
+                            /> */}
                         </div>
                         <div>
                             <span>{item.date.label}</span>

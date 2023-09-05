@@ -32,11 +32,11 @@ export const SIZE = {
 
 export const TYPE_ASSIGN = {
     LABEL: 'LABEL',
-    TEXT_K_V: 'TEXT_K_V',
+    TEXT_KEY_VALUE: 'TEXT_KEY_VALUE',
     INPUT_TEXT: 'INPUT_TEXT',
     TABLE: 'TABLE',
     DROP_DOWN: 'DROP_DOWN',
-    CHECK_BOX: 'CEHCK_BOX',
+    CHECK_BOX: 'CHECK_BOX',
     RADIO_BOX: 'RADIO_BOX',
 
 }
@@ -51,3 +51,4 @@ export const TYPE_RENDER_HEADER = {
     MAIN_TITLE: 'MAIN_TITLE',
     SUB_TITLE: 'SUB_TITLE'
 }
+

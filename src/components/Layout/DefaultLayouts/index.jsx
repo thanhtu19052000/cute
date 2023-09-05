@@ -11,7 +11,7 @@ function DefaultLayouts({ children }) {
     return (
         <div>
             <Header />
-            <div className={cx('wrapper-edit-content')}>
+            <div className='wrapper-default-A4'>
                 {children}
             </div>
         </div>

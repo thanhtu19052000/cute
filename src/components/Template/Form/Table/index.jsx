@@ -3,6 +3,7 @@ import { Document, Image, Page, StyleSheet, Svg, Text, View } from '@react-pdf/r
 import React from 'react'
 
 function Table({ genFile, data }) {
+
     return (
         <View style={styles.body}>
             <View style={styles.table}>
@@ -43,16 +44,14 @@ export default Table
 
 const styles = StyleSheet.create({
     table: {
-        display: "table",
         width: "auto",
-        borderStyle: "solid",
         borderWidth: 1,
-        borderRightWidth: 0,
         borderBottomWidth: 0,
-        // display: 'flex',
+        borderStyle: "solid"
     },
     tableRow: {
         margin: "auto",
+        display: 'flex',
         flexDirection: "row"
     },
     tableCol: {

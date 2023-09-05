@@ -2,7 +2,6 @@ import { Document, Image, Page, StyleSheet, Svg, Text, View } from '@react-pdf/r
 
 import React from 'react'
 import Table from '../Form/Table'
-import Table2 from '../Form/Table/Table2'
 
 function BodyPDFGenFile({ data, typeReducer, disPath, genFile }) {
     return (
@@ -13,7 +12,6 @@ function BodyPDFGenFile({ data, typeReducer, disPath, genFile }) {
                     genFile={genFile}
                     data={data}
                 />)}
-                <Table2 />
             </View>
         </>
 

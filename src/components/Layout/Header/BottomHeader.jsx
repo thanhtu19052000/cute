@@ -7,8 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Demo from '../../../pages/Demo';
 import DropDowList from '../../Template/Form/DropDownList';
+import Footer from '../../Template/Footer';
+import Header from '../../Template/Header';
+import HeaderPDF from '../../Template/HeaderPDF';
 import InterFacePage from '../../../pages/InterFace';
 import React from 'react'
+import ReactDOMServer from 'react-dom/server';
+import axios from 'axios';
 import classNames from 'classnames/bind'
 import moment from 'moment';
 import styles from './Header.module.scss'
@@ -16,47 +21,43 @@ import styles from './Header.module.scss'
 const cx = classNames.bind(styles);
 
 function BottomHeader() {
-    const data = useSelector((state) => state.demo);
-    // // console.log(header, body);
-    const dispatch = useDispatch();
-    // console.log('dataa vcl', data);
-    const fixedHeaderFooter = {
-        header: {
-            label: 'Tên khách hàng:', value: 'do thanh tu', prefix: ''
-        },
-        footer: [
-            { label: 'Note1 :', value: 'value1', prefix: '- prefix1' },
-            { label: 'Note2 :', value: 'value2', prefix: '- prefix2' },
-            { label: 'Note3 :', value: 'value3', prefix: '- prefix3' }
-        ]
+    const { header, footer } = useSelector((state) => state.dataHeaderFooter);
+    const data = useSelector((state) => state.data);
+    console.log(footer);
+    const onClick = async () => {
+        // const bodyElement = document.getElementById("Render");
+        // const headerElement = document.getElementById("Header");
+        const footerElement = ReactDOMServer.renderToString(<Footer footer={footer} />);
+        const headerElement = ReactDOMServer.renderToString(<Header header={header} />);
+        const bodyElement = ReactDOMServer.renderToString(<HeaderPDF header={data.header} />);
+
+        const apiUrl = 'http://localhost:4000/api/GenFile/generate-pdf';
+        const postData = {
+            htmlBody: bodyElement,
+            htmlHeader: headerElement,
+            htmlFooter: footerElement
+        };
+        const result = await axios.post(apiUrl, postData, { responseType: 'blob' })
+        downloadPdf(result.data, "myFileName.pdf");
+
+        function downloadPdf(data, filename) {
+            const pdfBlob = new Blob([data], { type: 'application/pdf' });
+            const downloadUrl = URL.createObjectURL(pdfBlob);
+            const link = document.createElement("a");
+            link.href = downloadUrl;
+
+            // link.download = filename;
+            link.click();
+            // URL.revokeObjectURL(downloadUrl);
+            // console.log(link);
+        }
     }
-    const headerData = [
-        {
-            type: TYPE_RENDER_HEADER.DATE_NUM,
-            num: { name: 'num', label: 'Số :', value: data.header, prefix: '/hcm/t72037' },
-            date: { label: `TPHM,ngày:${moment().day()},tháng:${moment().month()},năm:${moment().year()}` }
-        },
-        { label: 'TỜ TRÌNH ĐỀ XUẤT CẤP TÍN DỤNG', type: TYPE_RENDER_HEADER.TITLE },
-        { label: 'ÁP DỤNG CÁC SẢN PHẨM CẤP TÍN DỤNG PHỤC VỤ NHU CẦU ĐỜI SỐNG', type: TYPE_RENDER_HEADER.SUB_TITLE },
-    ]
-    const bodyData = [
-        { typeLine: TYPE_IN_LINE.SINGLE, label: 'Tên người dùng :', value: 'do thanh tu', type: TYPE_ASSIGN.TEXT_K_V },
-        { typeLine: TYPE_IN_LINE.SINGLE, label: 'Số điện thoại :', value: '0123738954090', name: 'phone', }
-    ]
     const items = [
         {
             label: (
-                <BlobProvider document={<Demo dataFill={data} data={{ fixedHeaderFooter, bodyData, headerData }} dispatch={dispatch} typeReducer={{ setBody, setHeader }} genFile={true} />}>
-                    {({ url, blob }) => {
-                        console.log(blob);
-                        return (
-                            <a href={url} target="_blank">
-                                View as PDF
-                            </a>
-                        );
-                    }}
-                </BlobProvider>
+                'PDF file'
             ),
+            onClick: onClick,
             key: '12',
             icon: <UserOutlined />,
         },
@@ -69,25 +70,6 @@ function BottomHeader() {
     return (
         <>
             <div className={cx('wrapper-function')}>
-                {/* <Select
-                    showSearch
-                    style={{
-                        width: 180,
-                        borderRadius: 5
-                    }}
-                    bordered={false}
-                    placeholder="Search to Select"
-                    optionFilterProp="children"
-                    value={fontFamily}
-                    // size='large'
-                    onChange={(value) => dispatch(setConfig({ fontFamily: value }))}
-                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                    filterSort={(optionA, optionB) =>
-                        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                    }
-                    options={FONT_FAMILY}
-                /> */}
-
                 <div className={cx('wrapper-detail-func')}>
                     <div>Tên tài liệu :</div>
                     <Input

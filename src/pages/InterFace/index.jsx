@@ -8,6 +8,7 @@ import InputBorderLess from '../../components/Template/Form/Input/InputBorderLes
 import PDFFile from './DPFDemo';
 import React from 'react'
 import fontFamily from '../../asset/font/Roboto-Medium.ttf'
+import { headerImage } from '../../asset/logo'
 import moment from 'moment';
 
 Font.register({
@@ -40,14 +41,13 @@ function InterFacePage() {
         { label: 'ÁP DỤNG CÁC SẢN PHẨM CẤP TÍN DỤNG PHỤC VỤ NHU CẦU ĐỜI SỐNG', type: TYPE_RENDER_HEADER.SUB_TITLE },
     ]
     const bodyData = [
-        { typeLine: TYPE_IN_LINE.SINGLE, label: 'Tên người dùng :', value: 'do thanh tu', type: TYPE_ASSIGN.TEXT_K_V },
-        { typeLine: TYPE_IN_LINE.SINGLE, label: 'Số điện thoại :', value: '0123738954090', name: 'phone', }
+        { typeLine: TYPE_IN_LINE.SINGLE, type: TYPE_ASSIGN.TEXT_KEY_VALUE, label: 'Tên người dùng :', value: 'do thanh tu' },
+        { typeLine: TYPE_IN_LINE.SINGLE, type: TYPE_ASSIGN.TEXT_KEY_VALUE, label: 'Số điện thoại :', value: '0123738954090', name: 'phone', }
     ]
     // console.log(data);
     return (
         <Document  >
             <Page size={'A4'} style={styles.page}>
-
                 <Demo data={{ fixedHeaderFooter, headerData, bodyData }} dispatch={dispatch} typeReducer={{ setBody, setHeader }} />
                 {/* <InputBorderLess /> */}
                 {/* <Text>ahskjdddddddddddddddddsddddddddddddddddd</Text> */}
