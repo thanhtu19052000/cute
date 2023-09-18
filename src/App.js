@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createRoutes, publicRoutes } from "./routes";
 
 import { Fragment } from "react";
-import { publicRoutes } from "./routes";
 import { useSelector } from "react-redux";
 
 function App() {
-  const {fontSize} = useSelector((state) => state.configType)
+  const { fontSize } = useSelector((state) => state.configType)
   return (
-     <BrowserRouter>
+    <BrowserRouter>
       <div className="App"
-        style={{fontSize:fontSize}}
+        style={{ fontSize: fontSize }}
       >
         <Routes>
           {publicRoutes.map((route, index) => {
@@ -25,15 +25,58 @@ function App() {
                 path={route.path}
                 element={
                   <Layout>
-                      <route.component />
+                    <route.component />
                   </Layout>
                 }
               />
             );
           })}
+
+
+          {/* <Route
+            path={createRoutes.parent.path}
+          >
+            <Route
+              index element={
+                <createRoutes.parent.layout>
+                  <createRoutes.parent.component />
+                </createRoutes.parent.layout>
+              }
+            />
+            {createRoutes.children.map((route, indexID) => {
+              let Layout;
+              if (route.layout) {
+                Layout = route.layout;
+              } else if (route.layout == null) {
+                Layout = Fragment;
+              }
+              // console.log(route.path);
+              return (
+                <Route
+                  key={indexID}
+                  path={route.path}
+                >
+
+                  <Route
+                    index
+                    element={
+                      <Layout>
+                        <route.component />
+                      </Layout>
+                    }
+                  />
+
+
+
+                </Route>
+              );
+            })}
+          </Route>*/}
         </Routes>
+
+
       </div>
-    </BrowserRouter> 
+    </BrowserRouter>
   );
 }
 

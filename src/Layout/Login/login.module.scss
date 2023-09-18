@@ -1,0 +1,76 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    background-image: url('../../asset/images/bg-01.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+
+}
+
+.container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.wrapper {
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 37px 55px;
+
+    background: #008c4f;
+    background-image: linear-gradient(#e49f15, #008c4f);
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login100-form {
+    width: 100%;
+}
+
+.logo {
+    max-height: 50px;
+    min-width: 5rem;
+    // filter: grayscale(100%) !important;
+}
+
+.wrap-logo {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.white-color {
+    color: white;
+}
+
+.title {
+    margin: 20px 0;
+    // display: none;
+    font-size: 3rem;
+    font-weight: 400;
+}

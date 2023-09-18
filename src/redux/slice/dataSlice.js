@@ -9,7 +9,7 @@ const dataSlice = createSlice({
     },
     reducers: {
         setHeader: (state, action) => ({
-            ...state, header: { [action.payload.name]: action.payload.value }
+            ...state, header: action.payload
         }),
         setBody: (state, action) => ({
             ...state, body: action.payload

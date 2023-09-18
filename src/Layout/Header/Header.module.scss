@@ -1,0 +1,273 @@
+.wrapper {
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+.wrap-adapt-top {
+    display: block;
+    // background-color: red;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--boder-color);
+    border-bottom-width: 1px;
+}
+
+.wrapper-top {
+    // margin-left: 15px;
+    // margin: 10px 0px;
+    // padding: 10px 0px;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    height: var(--default-layout-header-height);
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: red;
+
+
+    &-logo {
+        height: 3.8rem;
+        // margin-top: 5px;
+        margin-left: -5px;
+        // margin-bottom: 20px;
+    }
+}
+
+.wrapper-bottom-header-fake {
+    height: 50px;
+    width: 100%;
+}
+
+.wrapper-bottom-header {
+    position: relative;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    // transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.wrapper-bottom-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // box-shadow: 0 2px 5px rgba(247, 247, 247, 0.2);
+    background-color: #222;
+    // transform: translateY(0%);
+    z-index: 1;
+    animation-name: slideDown;
+
+}
+
+.wrapper-bottom-header:not(.fixed) {
+    // background-color: #333;
+    // color: white;
+    // padding: 20px;
+    animation-name: slideUp;
+
+}
+
+.wrapper-function {
+    height: var(--default-layout-header-height);
+    border-bottom-style: solid;
+    border-bottom-color: var(--boder-color);
+    border-bottom-width: 1px;
+    background-color: var(--white-color);
+
+    // border-top-style: solid;
+    // border-top-color: var(--boder-color);
+    // border-top-width: 1px;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper-top-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-custom {
+    text-align: right;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.icon {
+    height: 2rem;
+}
+
+.input-name {
+    width: 30rem;
+}
+
+.wrapper-detail-func {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 var(--paddingX);
+
+    div {
+        font-size: 1.5rem;
+        width: 400;
+        align-items: flex-end;
+        margin-right: 20px;
+    }
+
+    Button {
+        margin-left: 10px;
+    }
+}
+
+.menu {
+    height: 100%;
+    background-color: white;
+}
+
+.wrap-menu {
+    margin-left: 30px;
+    display: block;
+    height: 100%;
+    // margin-bottom: -6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // background-color: red;
+}
+
+.menu-item {
+    display: flex;
+    height: 100%;
+    min-width: 100px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.7rem;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    // background-color: red;
+}
+
+.active {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Ban đầu độ rộng là 0% */
+    height: 2px;
+    /* Độ cao là 100% của lớp cha */
+    background-color: var(--yellow-color);
+}
+
+.wrapper-top-layout {
+    height: 100%;
+    display: flex;
+    // align-items: center;
+    align-items: center;
+}
+
+.wrapper-top-logo {
+    cursor: pointer;
+}
+
+.hover {
+
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Ban đầu độ rộng là 0% */
+    height: 2px;
+    /* Độ cao là 100% của lớp cha */
+    background-color: var(--yellow-color);
+    /* Màu của đường thẳng */
+    animation: increaseWidth 0.25s linear;
+    /* Sử dụng animation với tên "increaseWidth", thời gian 2 giây và hiệu ứng tuyến tính */
+}
+
+.active-text {
+    color: var(--yellow-color);
+}
+
+.de-hover {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+
+    /* Ban đầu độ rộng là 0% */
+    height: 2px;
+    /* Độ cao là 100% của lớp cha */
+    background-color: var(--yellow-color);
+
+    position: absolute;
+    width: 0%;
+    /* Ban đầu độ rộng là 0% */
+    /* Độ cao là 100% của lớp cha */
+    /* Màu của đường thẳng */
+    animation: increaseWidth1 0.25s linear;
+    /* Sử dụng animation với tên "increaseWidth", thời gian 2 giây và hiệu ứng tuyến tính */
+}
+
+@keyframes increaseWidth1 {
+    0% {
+        width: 100%;
+        /* Bắt đầu với độ rộng là 0% */
+    }
+
+    100% {
+        width: 0%;
+        /* Kết thúc với độ rộng là 100% */
+    }
+}
+
+@keyframes increaseWidth {
+    0% {
+        width: 0%;
+        /* Bắt đầu với độ rộng là 0% */
+    }
+
+    100% {
+        width: 100%;
+        /* Kết thúc với độ rộng là 100% */
+    }
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

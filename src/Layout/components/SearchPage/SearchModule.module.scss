@@ -1,0 +1,207 @@
+// .wrap {
+//     background-color: var(--grey-color);
+//     border-radius: 5px;
+// }
+
+.search-icon {
+    height: 35px;
+    min-width: 20px;
+    margin-right: 10px;
+}
+
+.sub-count-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.count-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--yellow-color);
+    margin-right: 7px;
+}
+
+.wrap-search {
+    animation-duration: 0.7s;
+    /* Thời gian của hiệu ứng */
+    animation-timing-function: ease;
+    /* Hàm độ trễ (easing) */
+    animation-fill-mode: both;
+
+
+}
+
+.wrap-search-row {
+    background-color: var(--grey-color);
+    margin: 0 var(--paddingX) 20px var(--paddingX);
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.wrap-search.open-content {
+    animation-name: slide-down;
+    /* Sử dụng slide-down animation khi mở */
+}
+
+.wrap-search.close-content {
+    animation-name: slide-up;
+    /* Sử dụng slide-up animation khi đóng */
+}
+
+.title-search {
+    font-size: 2rem;
+    font-weight: 500;
+
+    &-sub {
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+}
+
+.wrap-form {}
+
+.wrap-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: var(--white-color);
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+
+.label-input {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem !important;
+    opacity: 0.6;
+    background-color: white !important;
+    border: none;
+    margin: 0px 0px !important;
+    padding: 0px 0px !important;
+
+    &:hover {
+        color: #000 !important;
+        opacity: 0.6 !important;
+        border: none !important;
+    }
+
+    & div {
+        display: none !important;
+    }
+
+}
+
+
+
+.input {
+    border: none;
+    outline: none;
+    margin-top: 7px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 100%;
+    background-color: var(--white-color);
+
+}
+
+input::placeholder {
+    color: black;
+    opacity: 0.8;
+    /* Firefox */
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+    opacity: 0.8;
+}
+
+input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+    opacity: 0.8;
+}
+
+.custom-select .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.sumit-text {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.button {
+    width: 200px;
+    margin-right: 16px;
+}
+
+.row-search {
+    margin: 0;
+    margin-bottom: 18px;
+}
+
+
+.toggle-button {
+    transform: rotate(0deg);
+    transition: all 0.6s;
+    color: var(--yellow-color);
+    margin-left: 10px;
+    /* Add a smooth transition for the transform property */
+}
+
+.toggle-button.open {
+    transform: rotate(180deg);
+    /* Rotate the icon 180 degrees when content is open */
+}
+
+.wrap-toggle {
+    background-color: var(--yellow-color);
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.icon-toggle {
+    color: white;
+    font-size: 2rem;
+    // font-weight: bold;
+}
+
+
+
+@keyframes slide-down {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    100% {
+        max-height: 1000px;
+        /* Độ cao tối đa của nội dung, điều chỉnh theo nhu cầu */
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        max-height: 1000px;
+        /* Độ cao tối đa của nội dung, điều chỉnh theo nhu cầu */
+        opacity: 1;
+    }
+
+    100% {
+        max-height: 0;
+        opacity: 0;
+        // display: none;
+    }
+}

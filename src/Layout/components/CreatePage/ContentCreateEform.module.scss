@@ -1,0 +1,79 @@
+.container {
+    display: block;
+    width: 100%;
+    // background-color: red;
+    position: relative;
+
+}
+
+.sub-container {
+    display: block;
+    // max-height: 600px;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        /* Set the width of the scrollbar */
+    }
+
+    /* Style the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+        background: var(--yellow-color);
+        /* Set the color of the scrollbar thumb */
+
+        border-radius: 5px;
+        /* Round the corners of the scrollbar thumb */
+    }
+
+    /* Style the scrollbar track (the area behind the thumb) */
+    &::-webkit-scrollbar-track {
+        background: var(--bg-color);
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-bottom: 70px;
+        /* Set the color of the scrollbar track */
+    }
+}
+
+
+
+.wrap {
+    display: block;
+    width: 100%;
+    margin-bottom: 70px;
+    // background-color: red;
+}
+
+.wrap::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 90%;
+    // background-color: rgba(255, 0, 0, 0.5);
+    /* Màu nền mà bạn muốn đè lên */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Để phần tử giả nằm phía sau phần tử cha */
+}
+
+.wrap-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--grey-color);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px -2px 2px rgba(163, 163, 163, 0.5);
+}
+
+.button {
+    width: 200px;
+    margin-right: 16px;
+    margin: 12px 0px;
+}

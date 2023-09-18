@@ -2,9 +2,7 @@ import './index.css';
 
 import App from './App';
 import { ConfigProvider } from 'antd';
-import Demo from './pages/Demo';
-import GlobalStyle from './components/globalStyle';
-import Home from './pages/Home';
+import GlobalStyle from './Layout/components/globalStyle';
 import { Provider } from 'react-redux'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -19,7 +17,7 @@ root.render(
           theme={{
             token: {
               colorPrimary: '#008c4f',
-              borderRadius: 4,
+              borderRadius: 5,
               colorSuccess: '#e49f15',
               colorWarning: '#e49f15',
               // Alias Token

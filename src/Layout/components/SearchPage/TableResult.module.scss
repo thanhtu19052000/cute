@@ -1,0 +1,15 @@
+.wrap {
+    margin: 0 var(--paddingX);
+    border-radius: 5px;
+}
+
+.title-table {
+    display: flex;
+    background-color: var(--grey-color);
+    padding: 10px 20px;
+    width: 200px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--green-color);
+    justify-content: center;
+}
